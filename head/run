@@ -1,0 +1,29 @@
+#!/bin/bash
+
+#./yalnix -t trace.txt -lk 99 -lu 99
+#./yalnix -t trace.txt -lk 99 -lu 99 programs/Forker
+#./yalnix -t trace.txt -lk 99 -lu 99 -n programs/Fun
+#./yalnix -t trace.txt -lk 99 -lu 99 -n programs/Execker
+#./yalnix -t trace.txt -lk 99 -lu 99 -n programs/Waiter
+#./yalnix -t trace.txt -lk 99 -lu 99  programs/Terminals
+#./yalnix -t trace.txt -lk 99 -lu 99 -n programs/Criminal
+#./yalnix -t trace.txt -lk 99 -lu 99 -n programs/BigStack
+#./yalnix -t trace.txt -lk 99 -lu 99 -n programs/SilentStackGrowth
+#./yalnix -t trace.txt -lk 99 -lu 99 -n programs/StackOverflow
+#./yalnix -t trace.txt -lk 99 -lu 99 -n programs/PureStackOverflow
+#./yalnix -t trace.txt -lk 99 -lu 99 -n programs/InterProcess
+./yalnix -t trace.txt -lk 50 -lu 99 -n programs/IdleScheduling
+
+# For LedyardBridge, easier if we supress verbose kernel output
+#./yalnix -t trace.txt -lk 50 -lu 99 -n programs/LedyardBridge
+
+# Test programs from ~cs58/yalnix/sample/test/*.c
+#./yalnix -t trace.txt -lk 50 -lu 99 -n programs/test/bigstack
+#./yalnix -t trace.txt -lk 99 -lu 99 programs/test/forktest
+#./yalnix -t trace.txt -lk 99 -lu 99 programs/test/torture
+#./yalnix -t trace.txt -lk 50 -lu 99 -n programs/test/zero
+
+#./yalnix -t trace.txt -lk 99 -lu 99 programs/SmallTest # Temporary test file.
+
+echo
+cat trace.txt

@@ -1,0 +1,56 @@
+New Notes:
+    We havn't dealt with what happens when a process that has a lock exits (it should release the lock, but it doesn't now)
+    CVars have been tested in LedyardBridge - but not for evilness (should make criminal cvar test program)
+
+
+JHL.
+I did write the skeletons for all interp variables, but then many many issues remain.
+
+JBB notes:
+    - We need to consider how to keep track of the interops so that we can free them once a process terminates (if it forgot to free them).
+      ==> JHL. I think I do this now. =)
+    - Have we dealt with the case that the interop array is full? I know you initialize it to a certain value, but I didn't see the code to expand it if necessary.
+      ==> JHL. This is done in Utility.c#RegisterInterp().
+    - For pipe write, we probably need to wake up readers after we write. Also, we don't want to overwrite the buffer, right? Shouldn't we instead just write the new contents at the end of the pipe buffer?
+    - Some thoughts on Pipe semantic issues you've pointed out:
+        * For our purposes, why don't we let anyone who has a valid pipe id write to the pipe, and same for read? This eliminates a bunch of complexity in keeping track of who has a stake in a certain pipe (complicated with forks, execs, and so forth)
+        * I think its incorrect to say that pipe() opens up two pipes - rather, it opens up only one pipe, and fills a two-integer array with a write and a read file descriptor for that pipe. What usually happens afterwards is that the process may pipe(), in which case the child has a copy of those file-descriptors (so now there are four file desciptors that refer to the same pipe). In this case, usually each of the child and the parent will close one end of the pipe.
+            > As this applies to Yalnix: I propose we don't worry about "closing" file desciptors to pipes. Rather, the user processes will be responsible for coordinating reading vs writing, and will use the pipe id as a method of refering to this pipe. They can dispose of this pipe by calling reclaim() (anyone can do this). BUT, I propose that we automatically reclaim this pipe when the process that created it dies (the process with the same pid. So, child processes closing will not automatically reclaim this pipe). In this situation, the user programmer is responsible for creating their pipes in the process that will be refering to it for the longest.
+            
+        * As mentioned above, I think writes should accumulate - so if a process writes "abb" to the pipe, and then writes "ccd" (without any intermediate reads of the pipe), the next process to read this pipe will see "abbccd".
+        * Conversly, reads should erase - so that as the data in the pipe is read, it is consumed. This, if the reading process in the above example specified a max read length of 2, then it will read "ab", and the next process to read would see "bccd".
+        * No, there is no implicit mechanism for the write to know if the reader has read the pipe. Perhaps there is a pipe going in the other direction where the readers sends an acknowledgement of what it received! But this is up to the user process
+
+==> JHL. I have some different ideas about the pipes' semantics, let's try to figure this out together.
+
+LOCKS.
+- Testing.
+
+CVARS.
+- What is the semantics?
+  - I have written the code according to what I think is the semantics of Unix cvars,
+    but my understanding of Unix cvars is pretty murky.
+- Testing (I did no testing yet).
+
+PIPES.
+- Okay. Here there are lots of issues.
+- What is the semantics? Issues include:
+  - Suppose I am a process. I made a pipe. Who can write to this pipe? Me and my descendants?
+  - Who can read from this pipe? Me and my descendants?
+  - Or should there be some way of specifying who can read and who can write?
+    In Unix, I think pipe() opens two pipes. Writer closes the read pipe, reader closes the
+    write pipe, so things work out one-way. How about in Yalnix?
+  - Is it one write and then one read always? For example, can two processes read after my
+    write?
+  - How does writer know if reader has read the pipe? Can it know?
+    ==> Probably cvars and other synchronization techniques.
+- Testing.
+
+==> Charles says (or implies) that not much is set in stone. We just have to come up with a
+    reasonable design choice and justify it.
+
+COMMON.
+- Suppose I am a process. I made a interp. Who can destroy this interp? Only me?
+  ==> In Charles's implementation, me and my descendants. (In ours now, only me.)
+- What if I Exit() without Reclaim()ing the interp?
+    => JBB: I think if the creator of the interop exits, we should manually free the interp (screw the orphans)

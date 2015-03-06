@@ -1,0 +1,740 @@
+** Yalnix level 99 tracing enabled **
+** User Prog level 99 tracing enabled **
+Yalnix     Executing SetKernelData()...
+Yalnix     SetKernelData():
+             KERNEL_DATA_START at 0x28fc0
+             KERNEL_DATA_END   at 0x32000
+             kernel_break      at 0x32000
+Yalnix     Leaving SetKernelData()...
+Yalnix     SetKernelBrk() : completed. requested:0x32000	 new brk:0x32000
+Yalnix     Executing KernelStart()...
+Yalnix     KernelStart(): argument process will run: programs/EvilExec.
+Yalnix     KernelStart(): PMEM_SIZE: 0x400000
+Yalnix     KernelStart(): trap vector table initialized.
+Yalnix                    (at 0x29be0)
+Yalnix     KernelStart(): frame table built. 25 frames in use.
+Yalnix     KernelStart(): page table for region 0 written.
+Yalnix     KernelStart(): virtual memory enabled.
+Yalnix     KernelStart():
+             REG_PTBR0: 0x2ab00
+             REG_PTLR0: 128
+             REG_PTBR1: 0x2af24
+             REG_PTLR1: 128
+Yalnix     KernelStart(): kernel stack page table written for first process.
+Yalnix     KernelStart(): Init process continuing in KernelStart
+Yalnix     Entering LoadProgram() with "programs/EvilExec"
+Yalnix     counting arg 0 = 'programs/EvilExec'
+Yalnix     LoadProgram: argsize 18, argcount 1
+Yalnix     prog_size 4, text 2 data 1 bss 1 pages
+Yalnix     LoadProgram: heap_size 4, stack_size 1
+Yalnix     saving arg 0 = 'programs/EvilExec'
+Yalnix     Leaving LoadProgram() with SUCCESS...
+Yalnix     KernelStart(): returning to init process!
+Yalnix     ContextSwitch(): new queue arrangement:
+Yalnix     QUEUE '&RUNNING':
+Yalnix       Head: Process #2(ppid #-1): 'Uninitialized'
+Yalnix     QUEUE '&READY':
+Yalnix       Head: Process #1(ppid #-1): 'programs/EvilExec'
+Yalnix     QUEUE '&SLEEPING':
+Yalnix       (Empty queue).
+Yalnix     QUEUE '&WAITING':
+Yalnix       (Empty queue).
+Yalnix     Calling KernelContextSwitch()...
+Yalnix     Switching from process #1 to #2
+Yalnix     KernelStart(): Idle process continuing in KernelStart
+Yalnix     Entering LoadProgram() with "IdleProcess"
+Yalnix     LoadProgram: argsize 0, argcount 0
+Yalnix     prog_size 4, text 2 data 1 bss 1 pages
+Yalnix     LoadProgram: heap_size 4, stack_size 1
+Yalnix     Leaving LoadProgram() with SUCCESS...
+Yalnix     KernelStart(): returning to idle process!
+Yalnix     Leaving KernelStart()...
+User Prog  IdleProcess is running...
+User Prog  IdleProcess in loop 1.
+Yalnix     
+
+TRAP_CLOCK(0)
+Yalnix     HandleTrapClock() is partially complete.
+Yalnix     ContextSwitch(): new queue arrangement:
+Yalnix     QUEUE '&RUNNING':
+Yalnix       Head: Process #1(ppid #-1): 'programs/EvilExec'
+Yalnix     QUEUE '&READY':
+Yalnix       Head: Process #2(ppid #-1): 'IdleProcess'
+Yalnix     QUEUE '&SLEEPING':
+Yalnix       (Empty queue).
+Yalnix     QUEUE '&WAITING':
+Yalnix       (Empty queue).
+Yalnix     Calling KernelContextSwitch()...
+Yalnix     Switching from process #2 to #1
+Yalnix     Leaving ContextSwitch()...
+---------------
+Yalnix     Leaving KernelStart()...
+Yalnix     TRAP_KERNEL(0x5)
+User Prog  EvilExec is running: pid=1...
+Yalnix     TRAP_KERNEL(0x1)
+Yalnix     TRAP_KERNEL(0x1)
+Yalnix     TRAP_KERNEL(0x1)
+Yalnix     TRAP_KERNEL(0x1)
+Yalnix     TRAP_KERNEL(0x1)
+User Prog  EvilExec Parent is continuing
+Yalnix     
+
+TRAP_CLOCK(1)
+Yalnix     HandleTrapClock() is partially complete.
+Yalnix     ContextSwitch(): new queue arrangement:
+Yalnix     QUEUE '&RUNNING':
+Yalnix       Head: Process #2(ppid #-1): 'IdleProcess'
+Yalnix     QUEUE '&READY':
+Yalnix       Head: Process #3(ppid #1): 'programs/EvilExec'
+Yalnix             Process #4(ppid#1): 'programs/EvilExec'
+Yalnix             Process #5(ppid#1): 'programs/EvilExec'
+Yalnix             Process #6(ppid#1): 'programs/EvilExec'
+Yalnix             Process #7(ppid#1): 'programs/EvilExec'
+Yalnix             Process #1(ppid#-1): 'programs/EvilExec'
+Yalnix     QUEUE '&SLEEPING':
+Yalnix       (Empty queue).
+Yalnix     QUEUE '&WAITING':
+Yalnix       (Empty queue).
+Yalnix     Calling KernelContextSwitch()...
+Yalnix     Switching from process #1 to #2
+Yalnix     Leaving ContextSwitch()...
+---------------
+User Prog  IdleProcess in loop 2.
+Yalnix     
+
+TRAP_CLOCK(2)
+Yalnix     HandleTrapClock() is partially complete.
+Yalnix     ContextSwitch(): new queue arrangement:
+Yalnix     QUEUE '&RUNNING':
+Yalnix       Head: Process #3(ppid #1): 'programs/EvilExec'
+Yalnix     QUEUE '&READY':
+Yalnix       Head: Process #4(ppid #1): 'programs/EvilExec'
+Yalnix             Process #5(ppid#1): 'programs/EvilExec'
+Yalnix             Process #6(ppid#1): 'programs/EvilExec'
+Yalnix             Process #7(ppid#1): 'programs/EvilExec'
+Yalnix             Process #1(ppid#-1): 'programs/EvilExec'
+Yalnix             Process #2(ppid#-1): 'IdleProcess'
+Yalnix     QUEUE '&SLEEPING':
+Yalnix       (Empty queue).
+Yalnix     QUEUE '&WAITING':
+Yalnix       (Empty queue).
+Yalnix     Calling KernelContextSwitch()...
+Yalnix     Switching from process #2 to #3
+Yalnix     TRAP_KERNEL(0x5)
+User Prog  EvilExec test#1: Exec(NULL, noargs) to exec. pid=3...
+Yalnix     TRAP_KERNEL(0x2)
+Yalnix     Invalid UserString 0 bytes into string at (nil), which started at (nil)
+Yalnix     UserProgram passed invalid pointer to Exec program name
+Yalnix     ===============================================
+Yalnix     HandleTrapKernel(): Exit(0) called for process #3.
+Yalnix     ContextSwitch(): new queue arrangement:
+Yalnix     QUEUE '&RUNNING':
+Yalnix       Head: Process #4(ppid #1): 'programs/EvilExec'
+Yalnix     QUEUE '&READY':
+Yalnix       Head: Process #5(ppid #1): 'programs/EvilExec'
+Yalnix             Process #6(ppid#1): 'programs/EvilExec'
+Yalnix             Process #7(ppid#1): 'programs/EvilExec'
+Yalnix             Process #1(ppid#-1): 'programs/EvilExec'
+Yalnix             Process #2(ppid#-1): 'IdleProcess'
+Yalnix     QUEUE '&SLEEPING':
+Yalnix       (Empty queue).
+Yalnix     QUEUE '&WAITING':
+Yalnix       (Empty queue).
+Yalnix     Calling KernelContextSwitch()...
+Yalnix     TRAP_KERNEL(0x5)
+User Prog  EvilExec test#2: pass invalid stack variable to exec. Exec(stackLocalVariable, noargs) pid=4...
+Yalnix     TRAP_KERNEL(0x2)
+Yalnix     Invalid UserString 0 bytes into string at 0x2006af, which started at 0x2006af
+Yalnix     UserProgram passed invalid pointer to Exec program name
+Yalnix     ===============================================
+Yalnix     HandleTrapKernel(): Exit(2098863) called for process #4.
+Yalnix     ContextSwitch(): new queue arrangement:
+Yalnix     QUEUE '&RUNNING':
+Yalnix       Head: Process #5(ppid #1): 'programs/EvilExec'
+Yalnix     QUEUE '&READY':
+Yalnix       Head: Process #6(ppid #1): 'programs/EvilExec'
+Yalnix             Process #7(ppid#1): 'programs/EvilExec'
+Yalnix             Process #1(ppid#-1): 'programs/EvilExec'
+Yalnix             Process #2(ppid#-1): 'IdleProcess'
+Yalnix     QUEUE '&SLEEPING':
+Yalnix       (Empty queue).
+Yalnix     QUEUE '&WAITING':
+Yalnix       (Empty queue).
+Yalnix     Calling KernelContextSwitch()...
+Yalnix     TRAP_KERNEL(0x5)
+User Prog  EvilExec test#3: pass &main to exec. Exec((char*) &main, noargs) pid=5...
+Yalnix     TRAP_KERNEL(0x2)
+Yalnix     HandleTrapKernel(): Exec() called with 'U‰åƒäðƒì0è'
+Yalnix     ******** Traps.c:108 ********
+Yalnix     Entering LoadProgram() with "U‰åƒäðƒì0è"
+Yalnix     LoadProgram: can't open file 'U‰åƒäðƒì0è'
+Yalnix     HandleExec: after load program, pid#5, ppid#1
+User Prog  EvilExec #3 Returned after Exec Call!!!
+Yalnix     TRAP_KERNEL(0x3)
+Yalnix     ===============================================
+Yalnix     HandleTrapKernel(): Exit(-1) called for process #5.
+Yalnix     ContextSwitch(): new queue arrangement:
+Yalnix     QUEUE '&RUNNING':
+Yalnix       Head: Process #6(ppid #1): 'programs/EvilExec'
+Yalnix     QUEUE '&READY':
+Yalnix       Head: Process #7(ppid #1): 'programs/EvilExec'
+Yalnix             Process #1(ppid#-1): 'programs/EvilExec'
+Yalnix             Process #2(ppid#-1): 'IdleProcess'
+Yalnix     QUEUE '&SLEEPING':
+Yalnix       (Empty queue).
+Yalnix     QUEUE '&WAITING':
+Yalnix       (Empty queue).
+Yalnix     Calling KernelContextSwitch()...
+Yalnix     TRAP_KERNEL(0x5)
+User Prog  EvilExec test#4: pass bad argument array to exec.  Exec("programs/Fun", ((char**) -1))  pid=6...
+Yalnix     TRAP_KERNEL(0x2)
+Yalnix     HandleTrapKernel(): Exec() called with 'programs/Fun'
+Yalnix     UserProgram passed invalid argument array pointer 0xffffffff to Exec
+User Prog  EvilExec #4 Returned after Exec Call!!!
+Yalnix     TRAP_KERNEL(0x3)
+Yalnix     ===============================================
+Yalnix     HandleTrapKernel(): Exit(-1) called for process #6.
+Yalnix     ContextSwitch(): new queue arrangement:
+Yalnix     QUEUE '&RUNNING':
+Yalnix       Head: Process #7(ppid #1): 'programs/EvilExec'
+Yalnix     QUEUE '&READY':
+Yalnix       Head: Process #1(ppid #-1): 'programs/EvilExec'
+Yalnix             Process #2(ppid#-1): 'IdleProcess'
+Yalnix     QUEUE '&SLEEPING':
+Yalnix       (Empty queue).
+Yalnix     QUEUE '&WAITING':
+Yalnix       (Empty queue).
+Yalnix     Calling KernelContextSwitch()...
+Yalnix     TRAP_KERNEL(0x5)
+User Prog  EvilExec test#5: pass argument array with bad strings to exec. Exec("programs/Fun", argv), argv[1] = (char*) -1, pid=7...
+Yalnix     TRAP_KERNEL(0x2)
+Yalnix     HandleTrapKernel(): Exec() called with 'programs/Fun'
+Yalnix     ******** Traps.c:98 ********
+Yalnix     HandleTrapKernel(): Exec checking argument pointer 0x1ffed0 pointing to 0x102725
+Yalnix       - Arg 'hi'
+Yalnix     ******** Traps.c:98 ********
+Yalnix     HandleTrapKernel(): Exec checking argument pointer 0x1ffed4 pointing to 0xffffffff
+Yalnix     Invalid UserString 0 bytes into string at 0xffffffff, which started at 0xffffffff
+Yalnix     UserProgram passed invalid pointer as Exec argument
+Yalnix     ===============================================
+Yalnix     HandleTrapKernel(): Exit(1058543) called for process #7.
+Yalnix     ContextSwitch(): new queue arrangement:
+Yalnix     QUEUE '&RUNNING':
+Yalnix       Head: Process #1(ppid #-1): 'programs/EvilExec'
+Yalnix     QUEUE '&READY':
+Yalnix       Head: Process #2(ppid #-1): 'IdleProcess'
+Yalnix     QUEUE '&SLEEPING':
+Yalnix       (Empty queue).
+Yalnix     QUEUE '&WAITING':
+Yalnix       (Empty queue).
+Yalnix     Calling KernelContextSwitch()...
+Yalnix     Leaving ContextSwitch()...
+---------------
+User Prog  EvilExec Parent is continuing
+Yalnix     
+
+TRAP_CLOCK(3)
+Yalnix     HandleTrapClock() is partially complete.
+Yalnix     ContextSwitch(): new queue arrangement:
+Yalnix     QUEUE '&RUNNING':
+Yalnix       Head: Process #2(ppid #-1): 'IdleProcess'
+Yalnix     QUEUE '&READY':
+Yalnix       Head: Process #1(ppid #-1): 'programs/EvilExec'
+Yalnix     QUEUE '&SLEEPING':
+Yalnix       (Empty queue).
+Yalnix     QUEUE '&WAITING':
+Yalnix       (Empty queue).
+Yalnix     Calling KernelContextSwitch()...
+Yalnix     Switching from process #1 to #2
+Yalnix     Leaving ContextSwitch()...
+---------------
+User Prog  IdleProcess in loop 3.
+Yalnix     
+
+TRAP_CLOCK(4)
+Yalnix     HandleTrapClock() is partially complete.
+Yalnix     ContextSwitch(): new queue arrangement:
+Yalnix     QUEUE '&RUNNING':
+Yalnix       Head: Process #1(ppid #-1): 'programs/EvilExec'
+Yalnix     QUEUE '&READY':
+Yalnix       Head: Process #2(ppid #-1): 'IdleProcess'
+Yalnix     QUEUE '&SLEEPING':
+Yalnix       (Empty queue).
+Yalnix     QUEUE '&WAITING':
+Yalnix       (Empty queue).
+Yalnix     Calling KernelContextSwitch()...
+Yalnix     Switching from process #2 to #1
+Yalnix     Leaving ContextSwitch()...
+---------------
+User Prog  EvilExec Parent is continuing
+Yalnix     
+
+TRAP_CLOCK(5)
+Yalnix     HandleTrapClock() is partially complete.
+Yalnix     ContextSwitch(): new queue arrangement:
+Yalnix     QUEUE '&RUNNING':
+Yalnix       Head: Process #2(ppid #-1): 'IdleProcess'
+Yalnix     QUEUE '&READY':
+Yalnix       Head: Process #1(ppid #-1): 'programs/EvilExec'
+Yalnix     QUEUE '&SLEEPING':
+Yalnix       (Empty queue).
+Yalnix     QUEUE '&WAITING':
+Yalnix       (Empty queue).
+Yalnix     Calling KernelContextSwitch()...
+Yalnix     Switching from process #1 to #2
+Yalnix     Leaving ContextSwitch()...
+---------------
+User Prog  IdleProcess in loop 4.
+Yalnix     
+
+TRAP_CLOCK(6)
+Yalnix     HandleTrapClock() is partially complete.
+Yalnix     ContextSwitch(): new queue arrangement:
+Yalnix     QUEUE '&RUNNING':
+Yalnix       Head: Process #1(ppid #-1): 'programs/EvilExec'
+Yalnix     QUEUE '&READY':
+Yalnix       Head: Process #2(ppid #-1): 'IdleProcess'
+Yalnix     QUEUE '&SLEEPING':
+Yalnix       (Empty queue).
+Yalnix     QUEUE '&WAITING':
+Yalnix       (Empty queue).
+Yalnix     Calling KernelContextSwitch()...
+Yalnix     Switching from process #2 to #1
+Yalnix     Leaving ContextSwitch()...
+---------------
+User Prog  EvilExec Parent is continuing
+Yalnix     
+
+TRAP_CLOCK(7)
+Yalnix     HandleTrapClock() is partially complete.
+Yalnix     ContextSwitch(): new queue arrangement:
+Yalnix     QUEUE '&RUNNING':
+Yalnix       Head: Process #2(ppid #-1): 'IdleProcess'
+Yalnix     QUEUE '&READY':
+Yalnix       Head: Process #1(ppid #-1): 'programs/EvilExec'
+Yalnix     QUEUE '&SLEEPING':
+Yalnix       (Empty queue).
+Yalnix     QUEUE '&WAITING':
+Yalnix       (Empty queue).
+Yalnix     Calling KernelContextSwitch()...
+Yalnix     Switching from process #1 to #2
+Yalnix     Leaving ContextSwitch()...
+---------------
+User Prog  IdleProcess in loop 5.
+Yalnix     
+
+TRAP_CLOCK(8)
+Yalnix     HandleTrapClock() is partially complete.
+Yalnix     ContextSwitch(): new queue arrangement:
+Yalnix     QUEUE '&RUNNING':
+Yalnix       Head: Process #1(ppid #-1): 'programs/EvilExec'
+Yalnix     QUEUE '&READY':
+Yalnix       Head: Process #2(ppid #-1): 'IdleProcess'
+Yalnix     QUEUE '&SLEEPING':
+Yalnix       (Empty queue).
+Yalnix     QUEUE '&WAITING':
+Yalnix       (Empty queue).
+Yalnix     Calling KernelContextSwitch()...
+Yalnix     Switching from process #2 to #1
+Yalnix     Leaving ContextSwitch()...
+---------------
+User Prog  EvilExec Parent is continuing
+Yalnix     
+
+TRAP_CLOCK(9)
+Yalnix     HandleTrapClock() is partially complete.
+Yalnix     ContextSwitch(): new queue arrangement:
+Yalnix     QUEUE '&RUNNING':
+Yalnix       Head: Process #2(ppid #-1): 'IdleProcess'
+Yalnix     QUEUE '&READY':
+Yalnix       Head: Process #1(ppid #-1): 'programs/EvilExec'
+Yalnix     QUEUE '&SLEEPING':
+Yalnix       (Empty queue).
+Yalnix     QUEUE '&WAITING':
+Yalnix       (Empty queue).
+Yalnix     Calling KernelContextSwitch()...
+Yalnix     Switching from process #1 to #2
+Yalnix     Leaving ContextSwitch()...
+---------------
+User Prog  IdleProcess in loop 6.
+Yalnix     
+
+TRAP_CLOCK(10)
+Yalnix     HandleTrapClock() is partially complete.
+Yalnix     ContextSwitch(): new queue arrangement:
+Yalnix     QUEUE '&RUNNING':
+Yalnix       Head: Process #1(ppid #-1): 'programs/EvilExec'
+Yalnix     QUEUE '&READY':
+Yalnix       Head: Process #2(ppid #-1): 'IdleProcess'
+Yalnix     QUEUE '&SLEEPING':
+Yalnix       (Empty queue).
+Yalnix     QUEUE '&WAITING':
+Yalnix       (Empty queue).
+Yalnix     Calling KernelContextSwitch()...
+Yalnix     Switching from process #2 to #1
+Yalnix     Leaving ContextSwitch()...
+---------------
+User Prog  EvilExec Parent is continuing
+Yalnix     
+
+TRAP_CLOCK(11)
+Yalnix     HandleTrapClock() is partially complete.
+Yalnix     ContextSwitch(): new queue arrangement:
+Yalnix     QUEUE '&RUNNING':
+Yalnix       Head: Process #2(ppid #-1): 'IdleProcess'
+Yalnix     QUEUE '&READY':
+Yalnix       Head: Process #1(ppid #-1): 'programs/EvilExec'
+Yalnix     QUEUE '&SLEEPING':
+Yalnix       (Empty queue).
+Yalnix     QUEUE '&WAITING':
+Yalnix       (Empty queue).
+Yalnix     Calling KernelContextSwitch()...
+Yalnix     Switching from process #1 to #2
+Yalnix     Leaving ContextSwitch()...
+---------------
+User Prog  IdleProcess in loop 7.
+Yalnix     
+
+TRAP_CLOCK(12)
+Yalnix     HandleTrapClock() is partially complete.
+Yalnix     ContextSwitch(): new queue arrangement:
+Yalnix     QUEUE '&RUNNING':
+Yalnix       Head: Process #1(ppid #-1): 'programs/EvilExec'
+Yalnix     QUEUE '&READY':
+Yalnix       Head: Process #2(ppid #-1): 'IdleProcess'
+Yalnix     QUEUE '&SLEEPING':
+Yalnix       (Empty queue).
+Yalnix     QUEUE '&WAITING':
+Yalnix       (Empty queue).
+Yalnix     Calling KernelContextSwitch()...
+Yalnix     Switching from process #2 to #1
+Yalnix     Leaving ContextSwitch()...
+---------------
+User Prog  EvilExec Parent is continuing
+Yalnix     
+
+TRAP_CLOCK(13)
+Yalnix     HandleTrapClock() is partially complete.
+Yalnix     ContextSwitch(): new queue arrangement:
+Yalnix     QUEUE '&RUNNING':
+Yalnix       Head: Process #2(ppid #-1): 'IdleProcess'
+Yalnix     QUEUE '&READY':
+Yalnix       Head: Process #1(ppid #-1): 'programs/EvilExec'
+Yalnix     QUEUE '&SLEEPING':
+Yalnix       (Empty queue).
+Yalnix     QUEUE '&WAITING':
+Yalnix       (Empty queue).
+Yalnix     Calling KernelContextSwitch()...
+Yalnix     Switching from process #1 to #2
+Yalnix     Leaving ContextSwitch()...
+---------------
+User Prog  IdleProcess in loop 8.
+Yalnix     
+
+TRAP_CLOCK(14)
+Yalnix     HandleTrapClock() is partially complete.
+Yalnix     ContextSwitch(): new queue arrangement:
+Yalnix     QUEUE '&RUNNING':
+Yalnix       Head: Process #1(ppid #-1): 'programs/EvilExec'
+Yalnix     QUEUE '&READY':
+Yalnix       Head: Process #2(ppid #-1): 'IdleProcess'
+Yalnix     QUEUE '&SLEEPING':
+Yalnix       (Empty queue).
+Yalnix     QUEUE '&WAITING':
+Yalnix       (Empty queue).
+Yalnix     Calling KernelContextSwitch()...
+Yalnix     Switching from process #2 to #1
+Yalnix     Leaving ContextSwitch()...
+---------------
+User Prog  EvilExec Parent is continuing
+Yalnix     
+
+TRAP_CLOCK(15)
+Yalnix     HandleTrapClock() is partially complete.
+Yalnix     ContextSwitch(): new queue arrangement:
+Yalnix     QUEUE '&RUNNING':
+Yalnix       Head: Process #2(ppid #-1): 'IdleProcess'
+Yalnix     QUEUE '&READY':
+Yalnix       Head: Process #1(ppid #-1): 'programs/EvilExec'
+Yalnix     QUEUE '&SLEEPING':
+Yalnix       (Empty queue).
+Yalnix     QUEUE '&WAITING':
+Yalnix       (Empty queue).
+Yalnix     Calling KernelContextSwitch()...
+Yalnix     Switching from process #1 to #2
+Yalnix     Leaving ContextSwitch()...
+---------------
+User Prog  IdleProcess in loop 9.
+Yalnix     
+
+TRAP_CLOCK(16)
+Yalnix     HandleTrapClock() is partially complete.
+Yalnix     ContextSwitch(): new queue arrangement:
+Yalnix     QUEUE '&RUNNING':
+Yalnix       Head: Process #1(ppid #-1): 'programs/EvilExec'
+Yalnix     QUEUE '&READY':
+Yalnix       Head: Process #2(ppid #-1): 'IdleProcess'
+Yalnix     QUEUE '&SLEEPING':
+Yalnix       (Empty queue).
+Yalnix     QUEUE '&WAITING':
+Yalnix       (Empty queue).
+Yalnix     Calling KernelContextSwitch()...
+Yalnix     Switching from process #2 to #1
+Yalnix     Leaving ContextSwitch()...
+---------------
+User Prog  EvilExec Parent is continuing
+Yalnix     
+
+TRAP_CLOCK(17)
+Yalnix     HandleTrapClock() is partially complete.
+Yalnix     ContextSwitch(): new queue arrangement:
+Yalnix     QUEUE '&RUNNING':
+Yalnix       Head: Process #2(ppid #-1): 'IdleProcess'
+Yalnix     QUEUE '&READY':
+Yalnix       Head: Process #1(ppid #-1): 'programs/EvilExec'
+Yalnix     QUEUE '&SLEEPING':
+Yalnix       (Empty queue).
+Yalnix     QUEUE '&WAITING':
+Yalnix       (Empty queue).
+Yalnix     Calling KernelContextSwitch()...
+Yalnix     Switching from process #1 to #2
+Yalnix     Leaving ContextSwitch()...
+---------------
+User Prog  IdleProcess in loop 10.
+Yalnix     
+
+TRAP_CLOCK(18)
+Yalnix     HandleTrapClock() is partially complete.
+Yalnix     ContextSwitch(): new queue arrangement:
+Yalnix     QUEUE '&RUNNING':
+Yalnix       Head: Process #1(ppid #-1): 'programs/EvilExec'
+Yalnix     QUEUE '&READY':
+Yalnix       Head: Process #2(ppid #-1): 'IdleProcess'
+Yalnix     QUEUE '&SLEEPING':
+Yalnix       (Empty queue).
+Yalnix     QUEUE '&WAITING':
+Yalnix       (Empty queue).
+Yalnix     Calling KernelContextSwitch()...
+Yalnix     Switching from process #2 to #1
+Yalnix     Leaving ContextSwitch()...
+---------------
+User Prog  EvilExec Parent is continuing
+Yalnix     
+
+TRAP_CLOCK(19)
+Yalnix     HandleTrapClock() is partially complete.
+Yalnix     ContextSwitch(): new queue arrangement:
+Yalnix     QUEUE '&RUNNING':
+Yalnix       Head: Process #2(ppid #-1): 'IdleProcess'
+Yalnix     QUEUE '&READY':
+Yalnix       Head: Process #1(ppid #-1): 'programs/EvilExec'
+Yalnix     QUEUE '&SLEEPING':
+Yalnix       (Empty queue).
+Yalnix     QUEUE '&WAITING':
+Yalnix       (Empty queue).
+Yalnix     Calling KernelContextSwitch()...
+Yalnix     Switching from process #1 to #2
+Yalnix     Leaving ContextSwitch()...
+---------------
+User Prog  IdleProcess in loop 11.
+Yalnix     
+
+TRAP_CLOCK(20)
+Yalnix     HandleTrapClock() is partially complete.
+Yalnix     ContextSwitch(): new queue arrangement:
+Yalnix     QUEUE '&RUNNING':
+Yalnix       Head: Process #1(ppid #-1): 'programs/EvilExec'
+Yalnix     QUEUE '&READY':
+Yalnix       Head: Process #2(ppid #-1): 'IdleProcess'
+Yalnix     QUEUE '&SLEEPING':
+Yalnix       (Empty queue).
+Yalnix     QUEUE '&WAITING':
+Yalnix       (Empty queue).
+Yalnix     Calling KernelContextSwitch()...
+Yalnix     Switching from process #2 to #1
+Yalnix     Leaving ContextSwitch()...
+---------------
+User Prog  EvilExec Parent is continuing
+Yalnix     
+
+TRAP_CLOCK(21)
+Yalnix     HandleTrapClock() is partially complete.
+Yalnix     ContextSwitch(): new queue arrangement:
+Yalnix     QUEUE '&RUNNING':
+Yalnix       Head: Process #2(ppid #-1): 'IdleProcess'
+Yalnix     QUEUE '&READY':
+Yalnix       Head: Process #1(ppid #-1): 'programs/EvilExec'
+Yalnix     QUEUE '&SLEEPING':
+Yalnix       (Empty queue).
+Yalnix     QUEUE '&WAITING':
+Yalnix       (Empty queue).
+Yalnix     Calling KernelContextSwitch()...
+Yalnix     Switching from process #1 to #2
+Yalnix     Leaving ContextSwitch()...
+---------------
+User Prog  IdleProcess in loop 12.
+Yalnix     
+
+TRAP_CLOCK(22)
+Yalnix     HandleTrapClock() is partially complete.
+Yalnix     ContextSwitch(): new queue arrangement:
+Yalnix     QUEUE '&RUNNING':
+Yalnix       Head: Process #1(ppid #-1): 'programs/EvilExec'
+Yalnix     QUEUE '&READY':
+Yalnix       Head: Process #2(ppid #-1): 'IdleProcess'
+Yalnix     QUEUE '&SLEEPING':
+Yalnix       (Empty queue).
+Yalnix     QUEUE '&WAITING':
+Yalnix       (Empty queue).
+Yalnix     Calling KernelContextSwitch()...
+Yalnix     Switching from process #2 to #1
+Yalnix     Leaving ContextSwitch()...
+---------------
+User Prog  EvilExec Parent is continuing
+Yalnix     
+
+TRAP_CLOCK(23)
+Yalnix     HandleTrapClock() is partially complete.
+Yalnix     ContextSwitch(): new queue arrangement:
+Yalnix     QUEUE '&RUNNING':
+Yalnix       Head: Process #2(ppid #-1): 'IdleProcess'
+Yalnix     QUEUE '&READY':
+Yalnix       Head: Process #1(ppid #-1): 'programs/EvilExec'
+Yalnix     QUEUE '&SLEEPING':
+Yalnix       (Empty queue).
+Yalnix     QUEUE '&WAITING':
+Yalnix       (Empty queue).
+Yalnix     Calling KernelContextSwitch()...
+Yalnix     Switching from process #1 to #2
+Yalnix     Leaving ContextSwitch()...
+---------------
+User Prog  IdleProcess in loop 13.
+Yalnix     
+
+TRAP_CLOCK(24)
+Yalnix     HandleTrapClock() is partially complete.
+Yalnix     ContextSwitch(): new queue arrangement:
+Yalnix     QUEUE '&RUNNING':
+Yalnix       Head: Process #1(ppid #-1): 'programs/EvilExec'
+Yalnix     QUEUE '&READY':
+Yalnix       Head: Process #2(ppid #-1): 'IdleProcess'
+Yalnix     QUEUE '&SLEEPING':
+Yalnix       (Empty queue).
+Yalnix     QUEUE '&WAITING':
+Yalnix       (Empty queue).
+Yalnix     Calling KernelContextSwitch()...
+Yalnix     Switching from process #2 to #1
+Yalnix     Leaving ContextSwitch()...
+---------------
+User Prog  EvilExec Parent is continuing
+Yalnix     
+
+TRAP_CLOCK(25)
+Yalnix     HandleTrapClock() is partially complete.
+Yalnix     ContextSwitch(): new queue arrangement:
+Yalnix     QUEUE '&RUNNING':
+Yalnix       Head: Process #2(ppid #-1): 'IdleProcess'
+Yalnix     QUEUE '&READY':
+Yalnix       Head: Process #1(ppid #-1): 'programs/EvilExec'
+Yalnix     QUEUE '&SLEEPING':
+Yalnix       (Empty queue).
+Yalnix     QUEUE '&WAITING':
+Yalnix       (Empty queue).
+Yalnix     Calling KernelContextSwitch()...
+Yalnix     Switching from process #1 to #2
+Yalnix     Leaving ContextSwitch()...
+---------------
+User Prog  IdleProcess in loop 14.
+Yalnix     
+
+TRAP_CLOCK(26)
+Yalnix     HandleTrapClock() is partially complete.
+Yalnix     ContextSwitch(): new queue arrangement:
+Yalnix     QUEUE '&RUNNING':
+Yalnix       Head: Process #1(ppid #-1): 'programs/EvilExec'
+Yalnix     QUEUE '&READY':
+Yalnix       Head: Process #2(ppid #-1): 'IdleProcess'
+Yalnix     QUEUE '&SLEEPING':
+Yalnix       (Empty queue).
+Yalnix     QUEUE '&WAITING':
+Yalnix       (Empty queue).
+Yalnix     Calling KernelContextSwitch()...
+Yalnix     Switching from process #2 to #1
+Yalnix     Leaving ContextSwitch()...
+---------------
+User Prog  EvilExec Parent is continuing
+Yalnix     
+
+TRAP_CLOCK(27)
+Yalnix     HandleTrapClock() is partially complete.
+Yalnix     ContextSwitch(): new queue arrangement:
+Yalnix     QUEUE '&RUNNING':
+Yalnix       Head: Process #2(ppid #-1): 'IdleProcess'
+Yalnix     QUEUE '&READY':
+Yalnix       Head: Process #1(ppid #-1): 'programs/EvilExec'
+Yalnix     QUEUE '&SLEEPING':
+Yalnix       (Empty queue).
+Yalnix     QUEUE '&WAITING':
+Yalnix       (Empty queue).
+Yalnix     Calling KernelContextSwitch()...
+Yalnix     Switching from process #1 to #2
+Yalnix     Leaving ContextSwitch()...
+---------------
+User Prog  IdleProcess in loop 15.
+Yalnix     
+
+TRAP_CLOCK(28)
+Yalnix     HandleTrapClock() is partially complete.
+Yalnix     ContextSwitch(): new queue arrangement:
+Yalnix     QUEUE '&RUNNING':
+Yalnix       Head: Process #1(ppid #-1): 'programs/EvilExec'
+Yalnix     QUEUE '&READY':
+Yalnix       Head: Process #2(ppid #-1): 'IdleProcess'
+Yalnix     QUEUE '&SLEEPING':
+Yalnix       (Empty queue).
+Yalnix     QUEUE '&WAITING':
+Yalnix       (Empty queue).
+Yalnix     Calling KernelContextSwitch()...
+Yalnix     Switching from process #2 to #1
+Yalnix     Leaving ContextSwitch()...
+---------------
+User Prog  EvilExec Parent is continuing
+Yalnix     
+
+TRAP_CLOCK(29)
+Yalnix     HandleTrapClock() is partially complete.
+Yalnix     ContextSwitch(): new queue arrangement:
+Yalnix     QUEUE '&RUNNING':
+Yalnix       Head: Process #2(ppid #-1): 'IdleProcess'
+Yalnix     QUEUE '&READY':
+Yalnix       Head: Process #1(ppid #-1): 'programs/EvilExec'
+Yalnix     QUEUE '&SLEEPING':
+Yalnix       (Empty queue).
+Yalnix     QUEUE '&WAITING':
+Yalnix       (Empty queue).
+Yalnix     Calling KernelContextSwitch()...
+Yalnix     Switching from process #1 to #2
+Yalnix     Leaving ContextSwitch()...
+---------------
+User Prog  IdleProcess in loop 16.
+Yalnix     
+
+TRAP_CLOCK(30)
+Yalnix     HandleTrapClock() is partially complete.
+Yalnix     ContextSwitch(): new queue arrangement:
+Yalnix     QUEUE '&RUNNING':
+Yalnix       Head: Process #1(ppid #-1): 'programs/EvilExec'
+Yalnix     QUEUE '&READY':
+Yalnix       Head: Process #2(ppid #-1): 'IdleProcess'
+Yalnix     QUEUE '&SLEEPING':
+Yalnix       (Empty queue).
+Yalnix     QUEUE '&WAITING':
+Yalnix       (Empty queue).
+Yalnix     Calling KernelContextSwitch()...
+Yalnix     Switching from process #2 to #1
+Yalnix     Leaving ContextSwitch()...
+---------------
+User Prog  exit in libc.c
+Yalnix     TRAP_KERNEL(0x3)
+Yalnix     Initial process exits. OS halts.
+Yalnix     Return value: 0

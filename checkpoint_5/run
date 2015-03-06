@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# run
+# bash shell script.
+#
+# Julien Blanchet and Jae Heon Lee.
+
+# Five programs below test functionality implemented for checkpoint 5.
+
+#./yalnix -t trace.txt -lk 99 -lu 99 -n programs/Criminal
+./yalnix -t trace.txt -lk 99 -lu 99 programs/Terminals
+#./yalnix -t trace.txt -lk 99 -lu 99 -n programs/BigStack
+#./yalnix -t trace.txt -lk 99 -lu 99 -n programs/SilentStackGrowth
+#./yalnix -t trace.txt -lk 99 -lu 99 -n programs/StackOverflow
+#./yalnix -t trace.txt -lk 99 -lu 99 -n programs/PureStackOverflow
+echo
+cat trace.txt
+
+# End of run

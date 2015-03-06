@@ -1,0 +1,5 @@
+#!/bin/bash
+
+./yalnix -t trace.txt -lk 99 -lu 99 -n programs/EvilExec
+echo
+cat trace.txt

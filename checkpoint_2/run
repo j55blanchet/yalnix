@@ -1,0 +1,5 @@
+#!/bin/bash
+
+./yalnix -t trace.txt -lk 99
+echo
+cat trace.txt

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+./yalnix -t trace.txt -lk 50 -lu 99 -n programs/InterpCriminal
+echo
+cat trace.txt
